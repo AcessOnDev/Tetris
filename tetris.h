@@ -4,7 +4,6 @@
 
     Autor: Jefferson Campos
     Data: 28/08/2019
-
 */
 
 #include <stdio.h>

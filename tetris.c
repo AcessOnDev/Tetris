@@ -3,8 +3,7 @@
     no console (terminal de comandos)
 
     Autor: Jefferson Campos
-    Data: 28/08/2019
-
+    Data: 28.08.2019
 */
 
 #include "tetris.h"
@@ -30,10 +29,12 @@ void printMatrix(char matrix[ROWS][COLUMNS]){
     int i,j;
 
     for(i=0; i<ROWS; i++){
-        for(j=0; j<COLUMNS; j++){
+        printf("*");        
+        for(j=0; j<COLUMNS; j++){  
+                      
             printf("%c", matrix[i][j]);
         }
-
+        printf("*");
         printf("\n");
     }
 }
