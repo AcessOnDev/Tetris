@@ -1,18 +1,14 @@
 /*
-    Jogo interativo Tetris implementado em linguagem C para uso 
-    no console (terminal de comandos)
-
+    Jogo interativo Tetris implementado em linguagem C para uso no console (terminal de comandos)
     Para executar:
         >> start programa.exe
     Autor: Jefferson Campos
-    Data: 28.08.2019
-*/
+    Data: 28.08.2019 */
+    
 #include "tetris.h"
 #include "display.h"
-/*
-    Parte principal do programa, responsável por iniciar e 
-    chamar as funções auxiliares.
-*/
+
+// Parte principal do programa, responsável por iniciar e chamar as funções auxiliares.
 int main(){
     char matrix[ROWS][COLUMNS];
     int posI, posJ;

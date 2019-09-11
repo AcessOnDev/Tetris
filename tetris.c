@@ -1,16 +1,10 @@
-/*
-    Jogo interativo Tetris implementado em linguagem C para uso 
-    no console (terminal de comandos)
-
+/*  Jogo interativo Tetris implementado em linguagem C para uso no console (terminal de comandos).
     Autor: Jefferson Campos
-    Data: 28.08.2019
-*/
+    Data: 28.08.2019 */
 
 #include "tetris.h"
 
-/*
-    Inicializa a matriz principal com 'espaços vazios'
-*/
+// Inicializa a matriz principal com espaços vazios.
 void init(char matrix[ROWS][COLUMNS]){
     int i,j;
 
@@ -21,17 +15,13 @@ void init(char matrix[ROWS][COLUMNS]){
     }
 }
 
-/*
-    Mostra o conteúdo da matriz principal na tela 
-    do computador.
-*/
+// Mostra o conteúdo da matriz principal na tela do computador.
 void printMatrix(char matrix[ROWS][COLUMNS]){
     int i,j;
 
     for(i=0; i<ROWS; i++){
-        printf("*");        
-        for(j=0; j<COLUMNS; j++){  
-                      
+        printf("*");                      
+        for(j=0; j<COLUMNS; j++){                                    
             printf("%c", matrix[i][j]);
         }
         printf("*");
