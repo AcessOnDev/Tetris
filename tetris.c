@@ -10,7 +10,7 @@ void init(char matrix[ROWS][COLUMNS]){
 
     for(i=0; i<ROWS; i++){
         for(j=0; j<COLUMNS; j++){
-            matrix[i][j] = ' ';
+            matrix[i][j] =' ';
         }
     }
 }
@@ -18,13 +18,23 @@ void init(char matrix[ROWS][COLUMNS]){
 // Mostra o conteúdo da matriz principal na tela do computador.
 void printMatrix(char matrix[ROWS][COLUMNS]){
     int i,j;
-
-    for(i=0; i<ROWS; i++){
-        printf("*");                      
-        for(j=0; j<COLUMNS; j++){                                    
-            printf("%c", matrix[i][j]);
-        }
+    
+    //linhca cima
+    for (j=0;j<COLUMNS-1;j++){
         printf("*");
-        printf("\n");
+    }
+    //Matriz
+        for(i=0; i<ROWS; i++){
+
+            printf("*");                      
+            for(j=0; j<COLUMNS-2; j++){                                    
+                printf("%c", matrix[i][j]);
+            }           
+            printf("*\n");      
+    }
+    
+    //linha de cima
+     for (j=0;j<COLUMNS;j++){
+        printf("*");
     }
 }
