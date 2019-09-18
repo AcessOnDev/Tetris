@@ -8,8 +8,8 @@
 void init(char matrix[ROWS][COLUMNS]){
     int i,j;
 
-    for(i=0; i<ROWS; i++){
-        for(j=0; j<COLUMNS; j++){
+    for(i = 0; i < ROWS; i++){
+        for(j = 0; j < COLUMNS; j++){
             matrix[i][j] =' ';
         }
     }
@@ -19,22 +19,23 @@ void init(char matrix[ROWS][COLUMNS]){
 void printMatrix(char matrix[ROWS][COLUMNS]){
     int i,j;
     
-    //linhca cima
-    for (j=0;j<COLUMNS-1;j++){
+    //linha  de cima
+    for (j = 0;j < COLUMNS + 2;j++){
         printf("*");
     }
-    //Matriz
-        for(i=0; i<ROWS; i++){
-
+    printf("\n");
+     //Matriz
+        for(i = 0; i < ROWS; i++){
             printf("*");                      
-            for(j=0; j<COLUMNS-2; j++){                                    
+            for(j = 0; j < COLUMNS; j++){                                    
                 printf("%c", matrix[i][j]);
             }           
-            printf("*\n");      
-    }
-    
-    //linha de cima
-     for (j=0;j<COLUMNS;j++){
+    printf("*\n");      
+    }  
+
+    //linha de baixo
+     for (j = 0;j < COLUMNS + 2;j++){
         printf("*");
-    }
+    } 
+    printf("\n");  
 }

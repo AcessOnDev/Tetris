@@ -12,25 +12,49 @@
 int main(){
     char matrix[ROWS][COLUMNS];
     int posI, posJ;
+    int keypressed=0;
 
     //posicao inicial do personagem
     posI = 0;
     posJ = COLUMNS/2;
+
     //inicializando matriz
     init(matrix);
     
     //apaga o cursor da tela
     ShowConsoleCursor(0);
     system("cls");
+
     //animaçao jogo
-    while(1){
+    while(keypressed!=ESC){
         gotoxy(0,0);
+
         //posiçao do personagem na tela 
         matrix[posI][posJ] = '@';
+
         //mostrar a matriz na tela
         printMatrix(matrix);
         matrix[posI][posJ] = ' ';        
         if(posI < (ROWS-1)) posI++;
+
+        //lendo teclas
+        keypressed=0;        
+        if(kbhit()) keypressed = getch();
+        if(keypressed == ARROWS)keypressed = getch();
+
+        switch(keypressed){
+            case LEFT_A_A:
+            case TECLA_A:
+            case LEFT : 
+                if(posJ > 0)posJ--; // Move Esquerda
+            break;
+            case RIGHT_D_D :
+            case TECLA_D:
+            case RIGHT : 
+                if(posJ < (COLUMNS-1)) posJ++;  // Move Direita
+            break;
+
+        }
     }
     system("pause");
 
