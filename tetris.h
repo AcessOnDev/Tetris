@@ -19,6 +19,35 @@
 #define LEFT_A_A 65
 #define RIGHT_D_D 68
 
+//Orientação das Peças
+#define ORIENTACAO_UP 1
+#define ORIENTACAO_DOWN 2
+#define ORIENTACAO_LEFT 3
+#define ORIENTACAO_RIGHT 4
+
+//Tipos de Peças
+#define TIPO_L 1
+#define TIPO_L_R 2 // L - Reverso
+#define TIPO_T 3
+#define TIPO_Z 4
+#define TIPO_Z_R 5 // Z - Reverso
+#define TIPO_O 6
+#define TIPO_I 7
+
+//Configuraçoes de layout
+#define PIXEL 219
+#define EMPTY 32
+
+//Estrutura padrao de componentes
+typedef struct{
+    int i;  //posiçao linhas na matriz
+    int j;  //posiçao linhas na matriz
+    int orientacao; //orientaçao da peça
+    int tipo;   //Tipo das peças( 7 peças)
+    int width;  //Largura Peças
+    int height; //Altura Peças
+}Bloco;
+
 // Inicializa a matriz principal com espaços vazios.
 void init(char matrix[ROWS][COLUMNS]);
 
