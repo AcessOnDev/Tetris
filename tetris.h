@@ -18,11 +18,12 @@
 #define TECLA_D 100
 #define LEFT_A_A 65
 #define RIGHT_D_D 68
+#define TECLA_ESPACO 32
 
 //Orientação das Peças
 #define ORIENTACAO_UP 1
-#define ORIENTACAO_DOWN 2
-#define ORIENTACAO_LEFT 3
+#define ORIENTACAO_LEFT 2
+#define ORIENTACAO_DOWN 3
 #define ORIENTACAO_RIGHT 4
 
 //Tipos de Peças
@@ -53,3 +54,6 @@ void init(char matrix[ROWS][COLUMNS]);
 
 // Mostra o conteúdo da matriz principal na tela do computador.
 void printMatrix(char matrix[ROWS][COLUMNS]);
+
+//desenha uma barra usando simbolo de caracter ASCII ,passado por paramentros.
+void drawbar(char matrix[ROWS][COLUMNS],Bloco barra,int simbolo);
