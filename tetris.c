@@ -47,6 +47,7 @@ void drawbar(char matrix[ROWS][COLUMNS],Bloco barra,int simbolo){
           switch(barra.orientacao){
             case ORIENTACAO_UP:
             case ORIENTACAO_DOWN:
+                if(barra.i-4>=0) matrix[barra.i-3][barra.j] = simbolo;
                 if(barra.i-3>=0) matrix[barra.i-3][barra.j] = simbolo;
                 if(barra.i-2>=0) matrix[barra.i-2][barra.j] = simbolo;
                 if(barra.i-1>=0) matrix[barra.i-1][barra.j] = simbolo;
@@ -54,7 +55,8 @@ void drawbar(char matrix[ROWS][COLUMNS],Bloco barra,int simbolo){
             break;
             case ORIENTACAO_RIGHT:
             case ORIENTACAO_LEFT:
-                if(barra.j-3>=0) matrix[barra.i][barra.j-3] = simbolo;
+                if(barra.i+1>=0) matrix[barra.i][barra.j+1] = simbolo;
+                if(barra.j+2>=0) matrix[barra.i][barra.j+2] = simbolo;
                 if(barra.j-2>=0) matrix[barra.i][barra.j-2] = simbolo;
                 if(barra.j-1>=0) matrix[barra.i][barra.j-1] = simbolo;
                 matrix[barra.i][barra.j] = simbolo;  

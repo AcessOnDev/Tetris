@@ -20,8 +20,8 @@ int main(){
     tijolo.j = COLUMNS/2;
     tijolo.tipo = TIPO_I;
     tijolo.orientacao= ORIENTACAO_LEFT;
-    tijolo.width = 1;
-    tijolo.height = 4;
+    tijolo.width = 5;
+    tijolo.height = 1;
 
     //inicializando matriz
     init(matrix);
@@ -35,7 +35,8 @@ int main(){
         gotoxy(0,0);
 
         #if DEBUG == 1
-            printf("@ = (%d,%d)\n",tijolo.i,tijolo.j);
+            printf("Posicao = (%d,%d)\n",tijolo.i,tijolo.j);
+            printf("Dimensao = (%d,%d)\n",tijolo.width,tijolo.height);
         #endif
 
         //posiçao do personagem na tela      
@@ -58,18 +59,28 @@ int main(){
             case LEFT_A_A:
             case TECLA_A:
             case LEFT : 
-                if(tijolo.j > 0)tijolo.j--; // Move Esquerda
+                if(tijolo.j - (tijolo.width/2) > 0)tijolo.j--; // Move Esquerda
             break;
             case RIGHT_D_D :
             case TECLA_D:
             case RIGHT : 
-                if(tijolo.j < (COLUMNS-1)) tijolo.j++;  // Move Direita
+                if(tijolo.j + (tijolo.width/2) < (COLUMNS-1)) tijolo.j++;  // Move Direita
             break;
             case TECLA_ESPACO:
                 if(tijolo.orientacao == ORIENTACAO_RIGHT)
                     tijolo.orientacao = ORIENTACAO_UP;
                 else
                     tijolo.orientacao++;
+
+                int aux = tijolo.width;
+                tijolo.width = tijolo.height;
+                tijolo.height = aux;
+
+                //corrigindo bug atravessar parede
+                if(tijolo.j < (tijolo.width/2))
+                    tijolo.j = tijolo.width/2;
+                else if(tijolo.j > COLUMNS - (tijolo.width/2)- 1)
+                    tijolo.j = COLUMNS - (tijolo.width/2) - 1;
         }
     }
     system("pause");
