@@ -7,7 +7,6 @@
     
 #include "tetris.h"
 #include "display.h"
-#define DEBUG 1
 
 // Parte principal do programa, responsável por iniciar e chamar as funções auxiliares.
 int main(){
@@ -16,12 +15,7 @@ int main(){
     int keypressed=0;
 
     //posicao inicial do personagem
-    tijolo.i = 0;
-    tijolo.j = COLUMNS/2;
-    tijolo.tipo = TIPO_I;
-    tijolo.orientacao= ORIENTACAO_LEFT;
-    tijolo.width = 5;
-    tijolo.height = 1;
+    initBar(&tijolo);
 
     //inicializando matriz
     init(matrix);
@@ -46,11 +40,15 @@ int main(){
         printMatrix(matrix);
 
         //posiçao anterior do persogam ser apagada
-        drawbar(matrix,tijolo,EMPTY);
+         if(!collisionDetect(matrix,tijolo)){
+            drawbar(matrix,tijolo,EMPTY);       
        
-        //movimentaçao queda
-        if(tijolo.i<(ROWS-1)) tijolo.i++;
+            //movimentaçao queda
+            if(tijolo.i<(ROWS-1)) tijolo.i++;
 
+        }else{
+            initBar(&tijolo);
+        }
         //lendo teclas
         keypressed=0;        
         if(kbhit()) keypressed = getch();
@@ -67,20 +65,8 @@ int main(){
                 if(tijolo.j + (tijolo.width/2) < (COLUMNS-1)) tijolo.j++;  // Move Direita
             break;
             case TECLA_ESPACO:
-                if(tijolo.orientacao == ORIENTACAO_RIGHT)
-                    tijolo.orientacao = ORIENTACAO_UP;
-                else
-                    tijolo.orientacao++;
-
-                int aux = tijolo.width;
-                tijolo.width = tijolo.height;
-                tijolo.height = aux;
-
-                //corrigindo bug atravessar parede
-                if(tijolo.j < (tijolo.width/2))
-                    tijolo.j = tijolo.width/2;
-                else if(tijolo.j > COLUMNS - (tijolo.width/2)- 1)
-                    tijolo.j = COLUMNS - (tijolo.width/2) - 1;
+                rotate(&tijolo);
+            break;
         }
     }
     system("pause");
